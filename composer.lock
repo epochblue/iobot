@@ -1,0 +1,19 @@
+{
+    "hash": "c43e961f7bfe5165318fdec55e7761ea",
+    "packages": [
+        {
+            "package": "epochblue/philip",
+            "version": "dev-master",
+            "source-reference": "40bf7ab85e46e54022514c9e272f83aca7a6f524",
+            "commit-date": "1346528621"
+        }
+    ],
+    "packages-dev": null,
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "epochblue/philip": 20
+    }
+}

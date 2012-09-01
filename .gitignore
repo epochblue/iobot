@@ -1,0 +1,7 @@
+# misc ignore
+.DS_Store
+*.swp
+
+# composer ignores
+composer.phar
+vendor/
