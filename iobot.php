@@ -18,6 +18,8 @@ $config = array(
     "nick"       => "iobot",
     "channels"   => array( '#iostudio-dev', '#iostudio-vip' ),
     "admins"     => array( 'cubicle17' ),
+    "debug"      => true,
+    "log"        => __DIR__ . '/iobot.log',
 );
 
 // Create the bot, passing in configuration options
