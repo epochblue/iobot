@@ -1,6 +1,7 @@
 # misc ignore
 .DS_Store
 *.swp
+*.log
 
 # composer ignores
 composer.phar
