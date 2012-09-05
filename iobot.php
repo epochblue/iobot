@@ -30,7 +30,7 @@ $bot->loadPlugins(array('Admin', 'SwearJar', 'ImageMe'));
 
 
 // Say hi back to the nice people
-$hi_re = "/^(hi|hello|hey|yo|was*up|waz*up|werd|hai|lo) {$config['nick']}$/";
+$hi_re = "/^(hi|hello|hey|yo|was+up|waz+up|werd|hai|lo) {$config['nick']}$/";
 $bot->onChannel($hi_re, function($request, $matches) {
     return Response::msg($request->getSource(), 'Hello, ' . $request->getSendingUser() . '!');
 });
