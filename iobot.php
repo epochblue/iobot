@@ -26,7 +26,7 @@ $config = array(
 $bot = new Philip($config);
 
 // Load my plugins
-$bot->loadPlugins(array('Admin', 'SwearJar', 'CannedResponse'));
+$bot->loadPlugins(array('Admin', 'SwearJar', 'ImageMe'));
 
 
 // Say hi back to the nice people
