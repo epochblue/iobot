@@ -29,19 +29,19 @@ $bot = new Philip($config);
 $bot->loadPlugins(array('Admin', 'SwearJar'));
 
 
-// detects someone speaking to the bot
+// Detects someone speaking to the bot
 $address_re = "/(^{$config['nick']}(.+)|(.+){$config['nick']}[!.?]*)$/i";
 $bot->onChannel($address_re, function($request, $matches) {
+    $src = $request->getSource();
     $message = $matches[1] ? $matches[1] : $matches[2];
     
-    $response = function($message) {
-        if (preg_match('/i (love|<3) (you|u)/i', $message)) return 'Shutup baby, I know it!';
-        if (preg_match('/(you are|you\'re) (the|a|an) ([\w ]+)/i', $message, $matches)) {
-            return "No, *you're* {$matches[2]} ". trim($matches[3]) .'!';
-        }
-    };
+    if (preg_match('/i (love|<3) (you|u)/i', $message)) {
+        return Response::msg($src, 'Shutup baby, I know it!');
+    }
 
-    return Response::msg($request->getSource(), $response($message));
+    if (preg_match("/(you are|you're) (the|a|an) ([\w ]+)/i", $message, $matches)) {
+        return Response::msg($src, "No, *you're* {$matches[2]} ". trim($matches[3]) .'!');
+    }
 });
 
 
@@ -108,6 +108,7 @@ $bot->onChannel($url_re, function($request, $matches) use (&$urls) {
             $urls[$source][$normal] = $request->getSendingUser();
         }
 });
+
 
 // Stock prices
 $bot->onChannel('/^\$(\w+)$/', function($request, $matches) {
