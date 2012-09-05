@@ -18,7 +18,7 @@ $config = array(
     "nick"       => "iobot",
     "channels"   => array( '#iostudio-dev', '#iostudio-vip' ),
     "admins"     => array( 'cubicle17' ),
-    "debug"      => true,
+    "debug"      => false,
     "log"        => __DIR__ . '/iobot.log',
 );
 
