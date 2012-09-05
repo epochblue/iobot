@@ -28,6 +28,23 @@ $bot = new Philip($config);
 // Load my plugins
 $bot->loadPlugins(array('Admin', 'SwearJar'));
 
+
+// detects someone speaking to the bot
+$address_re = "/(^{$config['nick']}(.+)|(.+){$config['nick']}[!.?]*)$/i";
+$bot->onChannel($address_re, function($request, $matches) {
+    $message = $matches[1] ? $matches[1] : $matches[2];
+    
+    $response = function($message) {
+        if (preg_match('/i (love|<3) (you|u)/i', $message)) return 'Shutup baby, I know it!';
+        if (preg_match('/(you are|you\'re) (the|a|an) ([\w ]+)/i', $message, $matches)) {
+            return "No, *you're* {$matches[2]} ". trim($matches[3]) .'!';
+        }
+    };
+
+    return Response::msg($request->getSource(), $response($message));
+});
+
+
 // Say hi back to the nice people
 $hi_re = "/^(hi|hello|hey|yo|was*up|waz*up|werd|hai|lo) {$config['nick']}$/";
 $bot->onChannel($hi_re, function($request, $matches) {
@@ -91,7 +108,6 @@ $bot->onChannel($url_re, function($request, $matches) use (&$urls) {
             $urls[$source][$normal] = $request->getSendingUser();
         }
 });
-
 
 // Stock prices
 $bot->onChannel('/^\$(\w+)$/', function($request, $matches) {
