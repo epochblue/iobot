@@ -97,7 +97,7 @@ $bot->onChannel($url_re, function($request, $matches) use (&$urls) {
 // Stock prices
 $bot->onChannel('/^\$(\w+)$/', function($request, $matches) {
     $stock = strtoupper($matches[0]);
-    $price = file_get_contents("http://download.finance.yahoo.com/d/quotes.csv?s=${stock}&f=b2");
+    $price = trim(file_get_contents("http://download.finance.yahoo.com/d/quotes.csv?s=${stock}&f=b2"));
     return Response::msg($request->getSource(), "Current $stock price: $price -- http://google.com/finance?q=$stock");
 });
 
