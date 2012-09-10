@@ -59,7 +59,7 @@ $bot->onChannel("/^!hf (\w+)$/", function($request, $matches) use ($config) {
 // You can't have a bot without the ability to fire people...
 $fired = array();
 $bot->onChannel("/^!fire( \w+)?$/", function($request, $matches) use (&$fired, $config) {
-    $who = empty($matches) ? 'Jarvis' : $matches[0];
+    $who = empty($matches) ? 'Jarvis' : trim($matches[0]);
     $normal = strtolower($who);
 
     // The bot shouldn't fire itself, that's just silly
