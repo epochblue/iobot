@@ -1,9 +1,0 @@
-# misc ignore
-.DS_Store
-*.swp
-*.log
-*.out
-
-# composer ignores
-composer.phar
-vendor/
