@@ -3,6 +3,7 @@
 *.swp
 *.log
 .idea
+*.out
 
 # composer ignores
 composer.phar

@@ -18,7 +18,7 @@ $config = array(
     "nick"       => "iobot",
     "channels"   => array( '#iostudio-dev', '#iostudio-vip' ),
     "admins"     => array( 'cubicle17' ),
-    "debug"      => true,
+    "debug"      => false,
     "log"        => __DIR__ . '/iobot.log',
 );
 
@@ -26,10 +26,11 @@ $config = array(
 $bot = new Philip($config);
 
 // Load my plugins
-$bot->loadPlugins(array('Admin', 'SwearJar'));
+$bot->loadPlugins(array('Admin', 'SwearJar', 'ImageMe', 'CannedResponse'));
+
 
 // Say hi back to the nice people
-$hi_re = "/^(hi|hello|hey|yo|was*up|waz*up|werd|hai|lo) {$config['nick']}$/";
+$hi_re = "/^(hi|hello|hey|yo|was+up|waz+up|werd|hai|lo) {$config['nick']}$/";
 $bot->onChannel($hi_re, function($request, $matches) {
     return Response::msg($request->getSource(), 'Hello, ' . $request->getSendingUser() . '!');
 });
@@ -58,7 +59,7 @@ $bot->onChannel("/^!hf (\w+)$/", function($request, $matches) use ($config) {
 // You can't have a bot without the ability to fire people...
 $fired = array();
 $bot->onChannel("/^!fire( \w+)?$/", function($request, $matches) use (&$fired, $config) {
-    $who = empty($matches) ? 'Jarvis' : $matches[0];
+    $who = empty($matches) ? 'Jarvis' : trim($matches[0]);
     $normal = strtolower($who);
 
     // The bot shouldn't fire itself, that's just silly
@@ -96,7 +97,7 @@ $bot->onChannel($url_re, function($request, $matches) use (&$urls) {
 // Stock prices
 $bot->onChannel('/^\$(\w+)$/', function($request, $matches) {
     $stock = strtoupper($matches[0]);
-    $price = file_get_contents("http://download.finance.yahoo.com/d/quotes.csv?s=${stock}&f=b2");
+    $price = trim(file_get_contents("http://download.finance.yahoo.com/d/quotes.csv?s=${stock}&f=b2"));
     return Response::msg($request->getSource(), "Current $stock price: $price -- http://google.com/finance?q=$stock");
 });
 
