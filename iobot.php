@@ -31,20 +31,26 @@ $bot->loadPlugins(array('Admin', 'SwearJar', 'ImageMe', 'CannedResponse'));
 
 // Say hi back to the nice people
 $hi_re = "/^(hi|hello|hey|yo|was+up|waz+up|werd|hai|lo) {$config['nick']}$/";
-$bot->onChannel($hi_re, function($request, $matches) {
-    return Response::msg($request->getSource(), 'Hello, ' . $request->getSendingUser() . '!');
+$bot->onChannel($hi_re, function($event) {
+    $request = $event->getRequest();
+    $event->addResponse(
+        Response::msg($request->getSource(), 'Hello, ' . $request->getSendingUser() . '!')
+    );
 });
 
 
 // Spit out a random meme (thanks @inky!!)
-$bot->onChannel("/^!meme$/", function($request, $matches) {
+$bot->onChannel("/^!meme$/", function($event) {
     $meme = file_get_contents('http://api.automeme.net/text?lines=1');
-    return Response::msg($request->getSource(), $meme);
+    $event->addResponse(
+        Response::msg($event->getRequest()->getSource(), $meme)
+    );
 });
 
 
 // Gives high-fives
-$bot->onChannel("/^!hf (\w+)$/", function($request, $matches) use ($config) {
+$bot->onChannel("/^!hf (\w+)$/", function($event) use ($config) {
+    $matches = $event->getMatches();
     $who = $matches[0];
 
     // Better way of having the bot high-five itself.
@@ -52,14 +58,18 @@ $bot->onChannel("/^!hf (\w+)$/", function($request, $matches) use ($config) {
         $who = 'itself';
     }
 
-    return Response::action($request->getSource(), "gives $who a high-five!");
+    $event->addResponse(
+        Response::action($event->getRequest()->getSource(), "gives $who a high-five!")
+    );
 });
 
 
 // You can't have a bot without the ability to fire people...
 $fired = array();
-$bot->onChannel("/^!fire( \w+)?$/", function($request, $matches) use (&$fired, $config) {
-    $who = empty($matches) ? 'Jarvis' : trim($matches[0]);
+$bot->onChannel("/^!fire([\s\w]+)?$/", function($event) use (&$fired, $config) {
+    $matches = $event->getMatches();
+    $request = $event->getRequest();
+    $who = empty($matches) ? 'The employee formerly known as Jarvis' : trim($matches[0]);
     $normal = strtolower($who);
 
     // The bot shouldn't fire itself, that's just silly
@@ -73,32 +83,42 @@ $bot->onChannel("/^!fire( \w+)?$/", function($request, $matches) use (&$fired, $
 
     $count = ++$fired[$normal];
     $times = ($count === 1) ? 'time' : 'times';
-    return Response::msg($request->getSource(), "$who, you're fired! (that's $count $times so far)");
+    $event->addResponse(
+        Response::msg($request->getSource(), "$who, you're fired! (that's $count $times so far)")
+    );
 });
 
 
 // Look for URLs, shame people who repost them.
 $urls  = array();
 $url_re = '/(((http|https):?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})?=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?)/';
-$bot->onChannel($url_re, function($request, $matches) use (&$urls) {
-        $url = $matches[0];
-        $normal = rtrim(preg_replace("/https?:\/\/(www\.)?/", '', $url), '/');
-        $source = $request->getSource();
+$bot->onChannel($url_re, function($event) use (&$urls) {
+    $matches = $event->getMatches();
+    $request = $event->getRequest();
 
-        if (isset($urls[$source]) && in_array($normal, array_keys($urls[$source]))) {
-            $who = $urls[$source][$normal];
-            return Response::msg($source, "REPOST!! ($who already posted that)");
-        } else {
-            $urls[$source][$normal] = $request->getSendingUser();
-        }
+    $url = $matches[0];
+    $normal = rtrim(preg_replace("/https?:\/\/(www\.)?/", '', $url), '/');
+    $source = $request->getSource();
+
+    if (isset($urls[$source]) && in_array($normal, array_keys($urls[$source]))) {
+        $who = $urls[$source][$normal];
+        $event->addResponse(
+            Response::msg($source, "REPOST!! ($who already posted that)")
+        );
+    } else {
+        $urls[$source][$normal] = $request->getSendingUser();
+    }
 });
 
 
 // Stock prices
-$bot->onChannel('/^\$(\w+)$/', function($request, $matches) {
+$bot->onChannel('/^\$(\w+)$/', function($event) {
+    $matches = $event->getMatches();
     $stock = strtoupper($matches[0]);
     $price = trim(file_get_contents("http://download.finance.yahoo.com/d/quotes.csv?s=${stock}&f=b2"));
-    return Response::msg($request->getSource(), "Current $stock price: $price -- http://google.com/finance?q=$stock");
+    $event->addResponse(
+        Response::msg($event->getRequest()->getSource(), "Current $stock price: $price -- http://google.com/finance?q=$stock")
+    );
 });
 
 
