@@ -7,12 +7,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/epochblue/philip.git",
-                "reference": "6dec38c6ed2725e39b163ebcf435b63eca06b5ba"
+                "reference": "90a57532b740c417bb2b426996862f7556be01a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/epochblue/philip/zipball/6dec38c6ed2725e39b163ebcf435b63eca06b5ba",
-                "reference": "6dec38c6ed2725e39b163ebcf435b63eca06b5ba",
+                "url": "https://github.com/epochblue/philip/zipball/90a57532b740c417bb2b426996862f7556be01a8",
+                "reference": "90a57532b740c417bb2b426996862f7556be01a8",
                 "shasum": ""
             },
             "require": {
@@ -20,7 +20,7 @@
                 "php": ">=5.3.3",
                 "symfony/event-dispatcher": "2.1.*"
             },
-            "time": "1349558493",
+            "time": "1349704597",
             "type": "library",
             "installation-source": "source",
             "autoload": {
