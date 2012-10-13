@@ -1,6 +1,7 @@
 {
     "require": {
-        "epochblue/philip": "dev-master"
+        "epochblue/philip": "dev-master",
+        "epochblue/philip-plugins": "dev-master"
     }
 }
 
