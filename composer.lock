@@ -1,5 +1,5 @@
 {
-    "hash": "c43e961f7bfe5165318fdec55e7761ea",
+    "hash": "8682ec010f8e8d111ebff2025267fa11",
     "packages": [
         {
             "name": "epochblue/philip",
@@ -7,12 +7,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/epochblue/philip.git",
-                "reference": "6dec38c6ed2725e39b163ebcf435b63eca06b5ba"
+                "reference": "45b56d4ee94220f3b117c5ad8406db81a3b4b3b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/epochblue/philip/zipball/6dec38c6ed2725e39b163ebcf435b63eca06b5ba",
-                "reference": "6dec38c6ed2725e39b163ebcf435b63eca06b5ba",
+                "url": "https://github.com/epochblue/philip/zipball/45b56d4ee94220f3b117c5ad8406db81a3b4b3b1",
+                "reference": "45b56d4ee94220f3b117c5ad8406db81a3b4b3b1",
                 "shasum": ""
             },
             "require": {
@@ -20,12 +20,12 @@
                 "php": ">=5.3.3",
                 "symfony/event-dispatcher": "2.1.*"
             },
-            "time": "1349558493",
+            "time": "1350093814",
             "type": "library",
             "installation-source": "source",
             "autoload": {
                 "psr-0": {
-                    "Philip": "src/"
+                    "Epochblue\\Philip": "src/"
                 }
             },
             "license": [
@@ -41,6 +41,52 @@
             "description": "A Slim-inspired IRC bot framework",
             "homepage": "http://github.com/epochblue/philip",
             "keywords": [
+                "DSL",
+                "bot",
+                "irc"
+            ]
+        },
+        {
+            "name": "epochblue/philip-plugins",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/epochblue/philip-plugins.git",
+                "reference": "2b79d0b535e302ab3e6839abe3c029ad6deeec33"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/epochblue/philip-plugins/zipball/2b79d0b535e302ab3e6839abe3c029ad6deeec33",
+                "reference": "2b79d0b535e302ab3e6839abe3c029ad6deeec33",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "epochblue/philip": "dev-master"
+            },
+            "time": "1350093621",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Epochblue\\Philip\\Plugin": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bill Israel",
+                    "email": "bill.israel@gmail.com",
+                    "homepage": "http://cubicle17.com/"
+                }
+            ],
+            "description": "Plugins for the Philip IRC bot",
+            "homepage": "http://github.com/epochblue/philip-plugins",
+            "keywords": [
+                "plugins",
+                "plugin",
                 "DSL",
                 "bot",
                 "irc"
@@ -71,7 +117,7 @@
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server"
             },
-            "time": "2012-08-29 11:53:20",
+            "time": "2012-08-29 04:53:20",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -83,7 +129,24 @@
                 "psr-0": {
                     "Monolog": "src/"
                 }
-            }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Logging for PHP 5.3",
+            "homepage": "http://github.com/Seldaek/monolog",
+            "keywords": [
+                "log",
+                "logging"
+            ]
         },
         {
             "name": "symfony/event-dispatcher",
@@ -110,7 +173,7 @@
                 "symfony/dependency-injection": "2.1.*",
                 "symfony/http-kernel": "2.1.*"
             },
-            "time": "2012-09-10 10:53:42",
+            "time": "2012-09-10 03:53:42",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -146,6 +209,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "epochblue/philip": 20
+        "epochblue/philip": 20,
+        "epochblue/philip-plugins": 20
     }
 }
