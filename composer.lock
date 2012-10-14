@@ -7,12 +7,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/epochblue/philip.git",
-                "reference": "45b56d4ee94220f3b117c5ad8406db81a3b4b3b1"
+                "reference": "85eaa9268edd2d68f21036e6c66c542da81f77f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/epochblue/philip/zipball/45b56d4ee94220f3b117c5ad8406db81a3b4b3b1",
-                "reference": "45b56d4ee94220f3b117c5ad8406db81a3b4b3b1",
+                "url": "https://github.com/epochblue/philip/zipball/85eaa9268edd2d68f21036e6c66c542da81f77f4",
+                "reference": "85eaa9268edd2d68f21036e6c66c542da81f77f4",
                 "shasum": ""
             },
             "require": {
@@ -20,12 +20,12 @@
                 "php": ">=5.3.3",
                 "symfony/event-dispatcher": "2.1.*"
             },
-            "time": "1350093814",
+            "time": "1350220409",
             "type": "library",
             "installation-source": "source",
             "autoload": {
                 "psr-0": {
-                    "Epochblue\\Philip": "src/"
+                    "Philip": "src/"
                 }
             },
             "license": [
@@ -52,24 +52,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/epochblue/philip-plugins.git",
-                "reference": "2b79d0b535e302ab3e6839abe3c029ad6deeec33"
+                "reference": "e4c5b2ca1f24b15e33ea0b2512f116780531d32e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/epochblue/philip-plugins/zipball/2b79d0b535e302ab3e6839abe3c029ad6deeec33",
-                "reference": "2b79d0b535e302ab3e6839abe3c029ad6deeec33",
+                "url": "https://github.com/epochblue/philip-plugins/zipball/e4c5b2ca1f24b15e33ea0b2512f116780531d32e",
+                "reference": "e4c5b2ca1f24b15e33ea0b2512f116780531d32e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "epochblue/philip": "dev-master"
             },
-            "time": "1350093621",
+            "time": "1350220614",
             "type": "library",
             "installation-source": "source",
             "autoload": {
                 "psr-0": {
-                    "Epochblue\\Philip\\Plugin": "src/"
+                    "Philip\\Plugin": "src/"
                 }
             },
             "license": [

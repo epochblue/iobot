@@ -6,8 +6,8 @@
  */
 require __DIR__ . '/vendor/autoload.php';
 
-use Epochblue\Philip\Philip;
-use Epochblue\Philip\IRC\Response;
+use Philip\Philip;
+use Philip\IRC\Response;
 
 $config = array(
     "hostname"   => "irc.freenode.net",
@@ -27,10 +27,10 @@ $bot = new Philip($config);
 
 // Load my plugins
 $bot->loadPlugins(array(
-    'Epochblue\\Philip\\Plugin\\AdminPlugin',
-    'Epochblue\\Philip\\Plugin\\SwearJarPlugin',
-    'Epochblue\\Philip\\Plugin\\ImageMePlugin',
-    'Epochblue\\Philip\\Plugin\\CannedResponsePlugin'
+    'Philip\\Plugin\\AdminPlugin',
+    'Philip\\Plugin\\SwearJarPlugin',
+    'Philip\\Plugin\\ImageMePlugin',
+    'Philip\\Plugin\\CannedResponsePlugin'
 ));
 
 
