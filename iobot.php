@@ -96,13 +96,13 @@ $bot->onChannel("/^!fire([\s\w]+)?$/", function($event) use (&$fired, $config) {
 
 // Look for URLs, shame people who repost them.
 $urls  = array();
-$url_re = '/(((http|https):?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})?=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?)/';
+$url_re = '/((http|https):?\/\/(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})?=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?)/';
 $bot->onChannel($url_re, function($event) use (&$urls) {
     $matches = $event->getMatches();
     $request = $event->getRequest();
 
     $url = $matches[0];
-    $normal = rtrim(preg_replace("/https?:\/\/(www\.)?/", '', $url), '/');
+    $normal = rtrim(preg_replace('/(:?https?:\/\/)?(:?www\.)?/', '', $url), '/');
     $source = $request->getSource();
 
     if (isset($urls[$source]) && in_array($normal, array_keys($urls[$source]))) {
