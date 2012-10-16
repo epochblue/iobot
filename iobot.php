@@ -16,7 +16,8 @@ $config = array(
     "username"   => "ioBot",
     "realname"   => "iostudio IRC Bot",
     "nick"       => "iobot",
-    "channels"   => array( '#iostudio-dev', '#iostudio-vip' ),
+    //"channels"   => array( '#iostudio-dev', '#iostudio-vip' ),
+    "channels"   => array( '#wmi-test' ),
     "admins"     => array( 'cubicle17' ),
     "debug"      => false,
     "log"        => __DIR__ . '/iobot.log',
@@ -117,9 +118,9 @@ $bot->onChannel($url_re, function($event) use (&$urls) {
 
 
 // Stock prices
-$bot->onChannel('/^\$(\w+)$/', function($event) {
+$bot->onChannel('/^\$(\w+(\.\w+)?)$/', function($event) {
     $matches = $event->getMatches();
-    $stock = strtoupper($matches[0]);
+    $stock = strtoupper(str_replace('.', '-', $matches[0]));
     $price = trim(file_get_contents("http://download.finance.yahoo.com/d/quotes.csv?s=${stock}&f=b2"));
     $event->addResponse(
         Response::msg($event->getRequest()->getSource(), "Current $stock price: $price -- http://google.com/finance?q=$stock")
