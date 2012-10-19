@@ -7,12 +7,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/epochblue/philip.git",
-                "reference": "85eaa9268edd2d68f21036e6c66c542da81f77f4"
+                "reference": "548079c52c9e05c57e1176ef80c99c757c534074"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/epochblue/philip/zipball/85eaa9268edd2d68f21036e6c66c542da81f77f4",
-                "reference": "85eaa9268edd2d68f21036e6c66c542da81f77f4",
+                "url": "https://github.com/epochblue/philip/zipball/548079c52c9e05c57e1176ef80c99c757c534074",
+                "reference": "548079c52c9e05c57e1176ef80c99c757c534074",
                 "shasum": ""
             },
             "require": {
@@ -20,7 +20,7 @@
                 "php": ">=5.3.3",
                 "symfony/event-dispatcher": "2.1.*"
             },
-            "time": "1350220409",
+            "time": "1350663251",
             "type": "library",
             "installation-source": "source",
             "autoload": {
@@ -52,19 +52,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/epochblue/philip-plugins.git",
-                "reference": "e4c5b2ca1f24b15e33ea0b2512f116780531d32e"
+                "reference": "8efa407937f9c071f358f1a0572f58ad4b62f924"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/epochblue/philip-plugins/zipball/e4c5b2ca1f24b15e33ea0b2512f116780531d32e",
-                "reference": "e4c5b2ca1f24b15e33ea0b2512f116780531d32e",
+                "url": "https://github.com/epochblue/philip-plugins/zipball/8efa407937f9c071f358f1a0572f58ad4b62f924",
+                "reference": "8efa407937f9c071f358f1a0572f58ad4b62f924",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "epochblue/philip": "dev-master"
             },
-            "time": "1350220614",
+            "time": "1350509274",
             "type": "library",
             "installation-source": "source",
             "autoload": {
@@ -117,7 +117,7 @@
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server"
             },
-            "time": "2012-08-29 04:53:20",
+            "time": "2012-08-29 11:53:20",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -129,24 +129,7 @@
                 "psr-0": {
                     "Monolog": "src/"
                 }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jordi Boggiano",
-                    "email": "j.boggiano@seld.be",
-                    "homepage": "http://seld.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Logging for PHP 5.3",
-            "homepage": "http://github.com/Seldaek/monolog",
-            "keywords": [
-                "log",
-                "logging"
-            ]
+            }
         },
         {
             "name": "symfony/event-dispatcher",
@@ -173,7 +156,7 @@
                 "symfony/dependency-injection": "2.1.*",
                 "symfony/http-kernel": "2.1.*"
             },
-            "time": "2012-09-10 03:53:42",
+            "time": "2012-09-10 10:53:42",
             "type": "library",
             "extra": {
                 "branch-alias": {
