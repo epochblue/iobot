@@ -9,18 +9,7 @@ require __DIR__ . '/vendor/autoload.php';
 use Philip\Philip;
 use Philip\IRC\Response;
 
-$config = array(
-    "hostname"   => "irc.freenode.net",
-    "servername" => "iostudio.com",
-    "port"       => 6667,
-    "username"   => "ioBot",
-    "realname"   => "iostudio IRC Bot",
-    "nick"       => "iobot",
-    "channels"   => array( '#iostudio-dev', '#iostudio-vip' ),
-    "admins"     => array( 'cubicle17' ),
-    "debug"      => false,
-    "log"        => __DIR__ . '/iobot.log',
-);
+$config = require __DIR__ . '/config/config.php';
 
 // Create the bot, passing in configuration options
 $bot = new Philip($config);

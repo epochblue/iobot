@@ -1,0 +1,15 @@
+<?php
+
+$config = array(
+    "hostname"        => "irc.freenode.net",
+    "servername"      => "iostudio.com",
+    "port"            => 6667,
+    "username"        => "ioBot",
+    "realname"        => "iostudio IRC Bot",
+    "nick"            => "iobot",
+    "channels"        => array( '#iostudio-dev', '#iostudio-vip' ),
+    "admins"          => array( 'cubicle17' ),
+    "debug"           => false,
+    "log"             => __DIR__ . '/iobot.log',
+    "darksky_api_key" => ''
+);
