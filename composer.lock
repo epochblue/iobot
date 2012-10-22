@@ -52,19 +52,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/epochblue/philip-plugins.git",
-                "reference": "8efa407937f9c071f358f1a0572f58ad4b62f924"
+                "reference": "1ad23262240b90b2de261f755d87fccd6fc15dcb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/epochblue/philip-plugins/zipball/8efa407937f9c071f358f1a0572f58ad4b62f924",
-                "reference": "8efa407937f9c071f358f1a0572f58ad4b62f924",
+                "url": "https://github.com/epochblue/philip-plugins/zipball/1ad23262240b90b2de261f755d87fccd6fc15dcb",
+                "reference": "1ad23262240b90b2de261f755d87fccd6fc15dcb",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "epochblue/philip": "dev-master"
+                "epochblue/philip": "dev-master",
+                "epochblue/darksky-php": "dev-master"
             },
-            "time": "1350509274",
+            "time": "1350701046",
             "type": "library",
             "installation-source": "source",
             "autoload": {
