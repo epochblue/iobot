@@ -19,7 +19,8 @@ $bot->loadPlugins(array(
     'Philip\\Plugin\\AdminPlugin',
     'Philip\\Plugin\\SwearJarPlugin',
     'Philip\\Plugin\\ImageMePlugin',
-    'Philip\\Plugin\\CannedResponsePlugin'
+    'Philip\\Plugin\\CannedResponsePlugin',
+    'Philip\\Plugin\\DarkSkyPlugin',
 ));
 
 
