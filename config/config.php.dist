@@ -1,6 +1,6 @@
 <?php
 
-$config = array(
+return array(
     "hostname"        => "irc.freenode.net",
     "servername"      => "iostudio.com",
     "port"            => 6667,
