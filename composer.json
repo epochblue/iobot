@@ -3,7 +3,6 @@
     "description": "The officially-unofficial iostudio IRC bot",
     "keywords": ["irc", "bot"],
     "homepage": "https://www.github.com/epochblue/iobot",
-    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Bill Israel",
@@ -12,8 +11,8 @@
         }
     ],
     "require": {
-        "epochblue/philip": "1.0.x-dev",
-        "epochblue/philip-plugins": "1.0.x-dev"
+        "epochblue/philip": "1.0.*",
+        "epochblue/philip-plugins": "1.0.*"
     }
 }
 
