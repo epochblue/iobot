@@ -16,11 +16,11 @@ $bot = new Philip($config);
 
 // Load my plugins
 $bot->loadPlugins(array(
-    'Philip\\Plugin\\AdminPlugin',
-    'Philip\\Plugin\\SwearJarPlugin',
-    'Philip\\Plugin\\ImageMePlugin',
-    'Philip\\Plugin\\CannedResponsePlugin',
-    'Philip\\Plugin\\DarkSkyPlugin',
+    new \Philip\Plugin\AdminPlugin($bot),
+    new \Philip\Plugin\SwearJarPlugin($bot),
+    new \Philip\Plugin\ImageMePlugin($bot),
+    new \Philip\Plugin\CannedResponsePlugin($bot),
+    new \Philip\Plugin\DarkSkyPlugin($bot, $config['DarkSkyPlugin']),
 ));
 
 
@@ -107,7 +107,7 @@ $bot->onChannel($url_re, function($event) use (&$urls) {
 
 
 // Stock prices
-$bot->onChannel('/^\$(\w+(\.\w+)?)$/', function($event) {
+$bot->onChannel('/\$(\w+(\.\w+)?)$/', function($event) {
     $matches = $event->getMatches();
     $stock = strtoupper(str_replace('.', '-', $matches[0]));
     $price = trim(file_get_contents("http://download.finance.yahoo.com/d/quotes.csv?s=${stock}&f=b2"));

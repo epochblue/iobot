@@ -1,9 +1,9 @@
 {
-    "hash": "fa3c395820d670a3db0d676adf119002",
+    "hash": "b2b8d8d14745b4fcf11c99a6a39f96cf",
     "packages": [
         {
             "name": "epochblue/darksky-php",
-            "version": "v1.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/epochblue/darksky-php",
@@ -11,26 +11,26 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/epochblue/darksky-php/zipball/v1.0.0",
+                "url": "https://github.com/epochblue/darksky-php/archive/v1.0.0.zip",
                 "reference": "v1.0.0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.0"
             },
-            "time": "2012-10-22 08:20:43",
+            "time": "2012-10-22 15:20:43",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.0.x-dev"
                 }
             },
-            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "DarkSky": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -52,36 +52,39 @@
         },
         {
             "name": "epochblue/philip",
-            "version": "v1.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/epochblue/philip.git",
-                "reference": "v1.0.0"
+                "reference": "c17ab29cccd28295be6596376fb90ca711e28e35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/epochblue/philip/zipball/v1.0.0",
-                "reference": "v1.0.0",
+                "url": "https://github.com/epochblue/philip/archive/c17ab29cccd28295be6596376fb90ca711e28e35.zip",
+                "reference": "c17ab29cccd28295be6596376fb90ca711e28e35",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
                 "monolog/monolog": "1.2.*",
+                "php": ">=5.3.3",
                 "symfony/event-dispatcher": "2.1.*"
             },
-            "time": "2012-10-28 08:23:52",
+            "require-dev": {
+                "atoum/atoum": "dev-master"
+            },
+            "time": "2013-01-19 20:50:47",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Philip": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -102,36 +105,38 @@
         },
         {
             "name": "epochblue/philip-plugins",
-            "version": "v1.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/epochblue/philip-plugins.git",
-                "reference": "v1.0.1"
+                "reference": "9b5e0a0f2889067fbd3349f6bb7f42eb5cddac24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/epochblue/philip-plugins/zipball/v1.0.1",
-                "reference": "v1.0.1",
+                "url": "https://github.com/epochblue/philip-plugins/archive/9b5e0a0f2889067fbd3349f6bb7f42eb5cddac24.zip",
+                "reference": "9b5e0a0f2889067fbd3349f6bb7f42eb5cddac24",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "epochblue/philip": "1.0.x",
                 "epochblue/darksky-php": "1.0.x"
             },
-            "time": "2012-10-28 12:00:15",
+            "require-dev": {
+                "epochblue/philip": "dev-master"
+            },
+            "time": "2013-01-19 21:05:18",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.1.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Philip\\Plugin": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -184,7 +189,6 @@
                     "dev-master": "1.3.x-dev"
                 }
             },
-            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Monolog": "src/"
@@ -210,17 +214,17 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.1.2",
+            "version": "2.1.x-dev",
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher",
-                "reference": "v2.1.2"
+                "reference": "v2.1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/EventDispatcher/zipball/v2.1.2",
-                "reference": "v2.1.2",
+                "url": "https://github.com/symfony/EventDispatcher/archive/v2.1.7.zip",
+                "reference": "v2.1.7",
                 "shasum": ""
             },
             "require": {
@@ -233,19 +237,14 @@
                 "symfony/dependency-injection": "2.1.*",
                 "symfony/http-kernel": "2.1.*"
             },
-            "time": "2012-09-10 03:53:42",
+            "time": "2013-01-11 00:31:43",
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1-dev"
-                }
-            },
-            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Symfony\\Component\\EventDispatcher": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -267,8 +266,9 @@
     "aliases": [
 
     ],
-    "minimum-stability": "stable",
-    "stability-flags": [
-
-    ]
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "epochblue/philip": 20,
+        "epochblue/philip-plugins": 20
+    }
 }

@@ -10,9 +10,10 @@
             "homepage": "http://billisrael.info/"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
-        "epochblue/philip": "1.0.*",
-        "epochblue/philip-plugins": "1.0.*"
+        "epochblue/philip": "dev-master",
+        "epochblue/philip-plugins": "dev-master"
     }
 }
 
