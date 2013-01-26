@@ -56,12 +56,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/epochblue/philip.git",
-                "reference": "c17ab29cccd28295be6596376fb90ca711e28e35"
+                "reference": "82902c5c9827772f8ed45629aad65f4a63151c8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/epochblue/philip/archive/c17ab29cccd28295be6596376fb90ca711e28e35.zip",
-                "reference": "c17ab29cccd28295be6596376fb90ca711e28e35",
+                "url": "https://github.com/epochblue/philip/archive/82902c5c9827772f8ed45629aad65f4a63151c8d.zip",
+                "reference": "82902c5c9827772f8ed45629aad65f4a63151c8d",
                 "shasum": ""
             },
             "require": {
@@ -72,7 +72,7 @@
             "require-dev": {
                 "atoum/atoum": "dev-master"
             },
-            "time": "2013-01-19 20:50:47",
+            "time": "2013-01-19 21:22:14",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -109,12 +109,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/epochblue/philip-plugins.git",
-                "reference": "9b5e0a0f2889067fbd3349f6bb7f42eb5cddac24"
+                "reference": "9e52baee51b2336f4a2bb0c846a183d8f483ca73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/epochblue/philip-plugins/archive/9b5e0a0f2889067fbd3349f6bb7f42eb5cddac24.zip",
-                "reference": "9b5e0a0f2889067fbd3349f6bb7f42eb5cddac24",
+                "url": "https://github.com/epochblue/philip-plugins/archive/9e52baee51b2336f4a2bb0c846a183d8f483ca73.zip",
+                "reference": "9e52baee51b2336f4a2bb0c846a183d8f483ca73",
                 "shasum": ""
             },
             "require": {
@@ -124,7 +124,7 @@
             "require-dev": {
                 "epochblue/philip": "dev-master"
             },
-            "time": "2013-01-19 21:05:18",
+            "time": "2013-01-19 21:13:22",
             "type": "library",
             "extra": {
                 "branch-alias": {
