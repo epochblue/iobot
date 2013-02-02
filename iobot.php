@@ -70,7 +70,12 @@ $bot->onChannel("/^!fire([\s\w]+)?$/", function(Event $event) use (&$fired, $con
 
     // The bot shouldn't fire itself, that's just silly
     if ($who === $config['nick']) {
-        return Response::msg($request->getSource(), "I'm sorry {$request->getSendingUser()}, I can't let you do that.");
+        $event->addResponse(
+            Response::msg(
+                $request->getSource(),
+                "I'm sorry {$request->getSendingUser()}, I can't let you do that."
+            )
+        );
     }
 
     if (!in_array($normal, array_keys($fired))) {
