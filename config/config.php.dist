@@ -8,8 +8,11 @@ return array(
     "realname"        => "iostudio IRC Bot",
     "nick"            => "iobot",
     "channels"        => array( '#iostudio-dev', '#iostudio-vip' ),
+    "unflood"         => 500,
     "admins"          => array( 'cubicle17' ),
     "debug"           => false,
     "log"             => __DIR__ . '/iobot.log',
-    "darksky_api_key" => ''
+    "DarkSkyPlugin"   => array(
+        "api_key" => ''
+    )
 );
