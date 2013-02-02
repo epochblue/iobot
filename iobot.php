@@ -8,6 +8,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Philip\Philip;
 use Philip\IRC\Response;
+use Philip\IRC\Event;
 
 $config = require __DIR__ . '/config/config.php';
 
@@ -26,7 +27,7 @@ $bot->loadPlugins(array(
 
 // Say hi back to the nice people
 $hi_re = "/^(hi|hello|hey|yo|was+up|waz+up|werd|hai|lo) {$config['nick']}$/";
-$bot->onChannel($hi_re, function($event) {
+$bot->onChannel($hi_re, function(Event $event) {
     $request = $event->getRequest();
     $event->addResponse(
         Response::msg($request->getSource(), 'Hello, ' . $request->getSendingUser() . '!')
@@ -35,7 +36,7 @@ $bot->onChannel($hi_re, function($event) {
 
 
 // Spit out a random meme (thanks @inky!!)
-$bot->onChannel("/^!meme$/", function($event) {
+$bot->onChannel("/^!meme$/", function(Event $event) {
     $meme = file_get_contents('http://api.automeme.net/text?lines=1');
     $event->addResponse(
         Response::msg($event->getRequest()->getSource(), $meme)
@@ -44,7 +45,7 @@ $bot->onChannel("/^!meme$/", function($event) {
 
 
 // Gives high-fives
-$bot->onChannel("/^!hf (\w+)$/", function($event) use ($config) {
+$bot->onChannel("/^!hf (\w+)$/", function(Event $event) use ($config) {
     $matches = $event->getMatches();
     $who = $matches[0];
 
@@ -61,7 +62,7 @@ $bot->onChannel("/^!hf (\w+)$/", function($event) use ($config) {
 
 // You can't have a bot without the ability to fire people...
 $fired = array();
-$bot->onChannel("/^!fire([\s\w]+)?$/", function($event) use (&$fired, $config) {
+$bot->onChannel("/^!fire([\s\w]+)?$/", function(Event $event) use (&$fired, $config) {
     $matches = $event->getMatches();
     $request = $event->getRequest();
     $who = empty($matches) ? 'The employee formerly known as Jarvis' : trim($matches[0]);
@@ -87,7 +88,7 @@ $bot->onChannel("/^!fire([\s\w]+)?$/", function($event) use (&$fired, $config) {
 // Look for URLs, shame people who repost them.
 $urls  = array();
 $url_re = '/((http|https):?\/\/(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})?=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?)/';
-$bot->onChannel($url_re, function($event) use (&$urls) {
+$bot->onChannel($url_re, function(Event $event) use (&$urls) {
     $matches = $event->getMatches();
     $request = $event->getRequest();
 
@@ -107,7 +108,7 @@ $bot->onChannel($url_re, function($event) use (&$urls) {
 
 
 // Stock prices
-$bot->onChannel('/\$(\w+(\.\w+)?)$/', function($event) {
+$bot->onChannel('/\$(\w+(\.\w+)?)$/', function(Event $event) {
     $matches = $event->getMatches();
     $stock = strtoupper(str_replace('.', '-', $matches[0]));
     $price = trim(file_get_contents("http://download.finance.yahoo.com/d/quotes.csv?s=${stock}&f=b2"));
