@@ -12,6 +12,14 @@ use Philip\IRC\Event;
 
 $config = require __DIR__ . '/config/config.php';
 
+// Create a generic context to be used when requesting from 3rd-party APIs.
+$context = stream_context_create(array(
+    'http' => array(
+        'method' => 'GET',
+        'timeout' => 5 // timeout after 5 seconds
+    )
+));
+
 // Create the bot, passing in configuration options
 $bot = new Philip($config);
 
@@ -36,10 +44,11 @@ $bot->onChannel($hi_re, function(Event $event) {
 
 
 // Spit out a random meme (thanks @inky!!)
-$bot->onChannel("/^!meme$/", function(Event $event) {
-    $meme = file_get_contents('http://api.automeme.net/text?lines=1');
-    $event->addResponse(
-        Response::msg($event->getRequest()->getSource(), $meme)
+$bot->onChannel("/^!meme$/", function(Event $event) use ($context) {
+    $meme = file_get_contents('http://api.automeme.net/text?lines=1', false, $context);
+        $event->addResponse(
+            Response::msg($event->getRequest()->getSource(), trim($meme)
+        )
     );
 });
 
@@ -91,7 +100,7 @@ $bot->onChannel("/^!fire([\s\w]+)?$/", function(Event $event) use (&$fired, $con
 
 
 // Look for URLs, shame people who repost them.
-$urls  = array();
+$urls = array();
 $url_re = '/((http|https):?\/\/(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})?=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?)/';
 $bot->onChannel($url_re, function(Event $event) use (&$urls) {
     $matches = $event->getMatches();
@@ -113,12 +122,20 @@ $bot->onChannel($url_re, function(Event $event) use (&$urls) {
 
 
 // Stock prices
-$bot->onChannel('/\$(\w+(\.\w+)?)$/', function(Event $event) {
+$bot->onChannel('/\$(\w+(\.\w+)?)/', function (Event $event) use ($context) {
     $matches = $event->getMatches();
     $stock = strtoupper(str_replace('.', '-', $matches[0]));
-    $price = trim(file_get_contents("http://download.finance.yahoo.com/d/quotes.csv?s=${stock}&f=b2"));
+    $price = file_get_contents(
+        "http://download.finance.yahoo.com/d/quotes.csv?s=${stock}&f=b2",
+        false,
+        $context
+    );
+    $price = trim($price);
     $event->addResponse(
-        Response::msg($event->getRequest()->getSource(), "Current $stock price: $price -- http://google.com/finance?q=$stock")
+        Response::msg(
+            $event->getRequest()->getSource(),
+            "Current $stock price: $price -- http://google.com/finance?q=$stock"
+        )
     );
 });
 
