@@ -26,6 +26,7 @@ $bot = new Philip($config);
 // Load my plugins
 $bot->loadPlugins(array(
     new \Philip\Plugin\AdminPlugin($bot),
+    new \Philip\Plugin\AnsweringMachinePlugin($bot),
     new \Philip\Plugin\SwearJarPlugin($bot),
     new \Philip\Plugin\ImageMePlugin($bot),
     new \Philip\Plugin\CannedResponsePlugin($bot),
