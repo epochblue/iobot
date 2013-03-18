@@ -18,7 +18,6 @@
             "require": {
                 "php": ">=5.2.0"
             },
-            "time": "2012-10-22 15:20:43",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -45,10 +44,11 @@
             "homepage": "https://www.github.com/epochblue/darksky-php",
             "keywords": [
                 "api",
-                "weather",
+                "dark sky",
                 "darksky",
-                "dark sky"
-            ]
+                "weather"
+            ],
+            "time": "2012-10-22 15:20:43"
         },
         {
             "name": "epochblue/philip",
@@ -72,7 +72,6 @@
             "require-dev": {
                 "atoum/atoum": "dev-master"
             },
-            "time": "2013-01-19 21:22:14",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -101,7 +100,8 @@
                 "DSL",
                 "bot",
                 "irc"
-            ]
+            ],
+            "time": "2013-01-19 21:22:14"
         },
         {
             "name": "epochblue/philip-plugins",
@@ -109,22 +109,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/epochblue/philip-plugins.git",
-                "reference": "9e52baee51b2336f4a2bb0c846a183d8f483ca73"
+                "reference": "1ba018b43f3644242142a3d668aeba5e640d0c2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/epochblue/philip-plugins/archive/9e52baee51b2336f4a2bb0c846a183d8f483ca73.zip",
-                "reference": "9e52baee51b2336f4a2bb0c846a183d8f483ca73",
+                "url": "https://api.github.com/repos/epochblue/philip-plugins/zipball/1ba018b43f3644242142a3d668aeba5e640d0c2b",
+                "reference": "1ba018b43f3644242142a3d668aeba5e640d0c2b",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
-                "epochblue/darksky-php": "1.0.x"
+                "epochblue/darksky-php": "1.0.x",
+                "php": ">=5.3.3"
             },
             "require-dev": {
                 "epochblue/philip": "dev-master"
             },
-            "time": "2013-01-19 21:13:22",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -150,12 +149,13 @@
             "description": "Plugins for the Philip IRC bot",
             "homepage": "https://github.com/epochblue/philip-plugins",
             "keywords": [
-                "plugins",
-                "plugin",
                 "DSL",
                 "bot",
-                "irc"
-            ]
+                "irc",
+                "plugin",
+                "plugins"
+            ],
+            "time": "2013-03-18 17:31:26"
         },
         {
             "name": "monolog/monolog",
@@ -178,11 +178,10 @@
                 "mlehner/gelf-php": "1.0.*"
             },
             "suggest": {
-                "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
-                "ext-mongo": "Allow sending log messages to a MongoDB server"
+                "ext-mongo": "Allow sending log messages to a MongoDB server",
+                "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server"
             },
-            "time": "2012-08-29 04:53:20",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -210,7 +209,8 @@
             "keywords": [
                 "log",
                 "logging"
-            ]
+            ],
+            "time": "2012-08-29 04:53:20"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -237,7 +237,6 @@
                 "symfony/dependency-injection": "2.1.*",
                 "symfony/http-kernel": "2.1.*"
             },
-            "time": "2013-01-11 00:31:43",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -259,10 +258,13 @@
                 }
             ],
             "description": "Symfony EventDispatcher Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-01-11 00:31:43"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+
+    ],
     "aliases": [
 
     ],
@@ -270,5 +272,11 @@
     "stability-flags": {
         "epochblue/philip": 20,
         "epochblue/philip-plugins": 20
-    }
+    },
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
 }
