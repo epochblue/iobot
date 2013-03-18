@@ -11,7 +11,7 @@ Commands
 * `!hf <person>`     - because sometimes people do good and need to be congratulated.
 * `!meme`            - spits out a random meme via [http://automeme.net/](http://automeme.net/).
 * `$<stock ticker>`  - get the current price of a stock.
-* `!img <keyword>`   - an alias for `!image`
+* `!img <keyword>`   - get a random image from a Google Images search for your keyword
 * `!gif <keyword>`   - get a random gif from Google Images
 * `!msg <who> <msg>` - leaves a message for someone, delivered when they rejoin the room
 
