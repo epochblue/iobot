@@ -140,6 +140,21 @@ $bot->onChannel('/\$(\w+(\.\w+)?)/', function (Event $event) use ($context) {
     );
 });
 
+// Bitcoin info
+$bot->onChannel('/(btc)/', function (Event $event) {
+    $price = json_decode(
+        file_get_contents("http://data.mtgox.com/api/1/BTCUSD/ticker"),
+        true
+        );
+
+    $event->addResponse(
+        Response::msg(
+            $event->getRequest()->getSource(),
+            "MtGox Buy: {$price['return']['buy']['display_short']}; Sell: {$price['return']['sell']['display_short']}; High: {$price['return']['high']['display_short']}; Low: {$price['return']['low']['display_short']}"
+            )
+        );
+});
+
 
 // Ready, set, go.
 $bot->run();
