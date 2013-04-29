@@ -141,7 +141,7 @@ $bot->onChannel('/\$(\w+(\.\w+)?)/', function (Event $event) use ($context) {
 });
 
 // Bitcoin info
-$bot->onChannel('/(btc)/', function (Event $event) {
+$bot->onChannel('/(^!btc)/', function (Event $event) {
     $price = json_decode(
         file_get_contents("http://data.mtgox.com/api/1/BTCUSD/ticker"),
         true
