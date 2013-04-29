@@ -14,6 +14,7 @@ Commands
 * `!img <keyword>`   - get a random image from a Google Images search for your keyword
 * `!gif <keyword>`   - get a random gif from Google Images
 * `!msg <who> <msg>` - leaves a message for someone, delivered when they rejoin the room
+* `!btc`             - pulls bitcoin ticker from mtgox api.
 
 
 Listeners
